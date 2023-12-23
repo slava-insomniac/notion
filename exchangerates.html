@@ -3,12 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Currency</title>
+    <title>Currency widget</title>
   </head>
   <body>
     <script>
-      var fm = 'USD';
-      var to = 'RUB,KZT,THB';
+      var urlParams = new URLSearchParams(window.location.search);
+      var fm = urlParams.get('fm') || 'USD';
+      var to = urlParams.get('to') || 'RUB';
       var tz = 'timezone';
       var sz = '1x201';
       var lg = 'en';
