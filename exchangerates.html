@@ -3,20 +3,25 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Currency widget</title>
+    <title>Currency</title>
   </head>
   <body>
-    <script>
+    <script type="text/javascript">
       var urlParams = new URLSearchParams(window.location.search);
-      var fm = urlParams.get('fm') || 'USD';
-      var to = urlParams.get('to') || 'RUB';
-      var tz = 'timezone';
-      var sz = '1x201';
-      var lg = 'en';
-      var st = 'default';
-      var cd = 1;
-      var am = 1;
+
+      let currencies = urlParams.get('to')?.split(',') || [];
+
+      currencies.forEach((currency, index) => {
+        window[`c${index + 1}`] = currency;
+      });
+
+      var mc = urlParams.get('fm') || 'USD';
+      var nb = currencies.length;
+      var tz = '0';
+      var bc = 'Currency';
+      var lc = '000000';
+      var bdrc = 'FFFFFF';
     </script>
-    <script src="//currencyrate.today/exchangerates"></script>
+    <script src="https://www.currency.me.uk/remote/FE-FERT-1.php"></script>
   </body>
 </html>
